@@ -100,12 +100,12 @@ color: #ECEDF0;
 <div class="images">
 <div id="moneda">
   <img src="resources/heads.svg" alt="">
-<img src="resources/tails.svg" alt="">
+<img id="cruz" src="resources/tails.svg" alt="">
 </div>
-<img src="resources/shadow.svg" alt="">
+<img id="cara" src="resources/shadow.svg" alt="">
 </div>
-
-<button>RANDOM</button>
+<p id="tipo">Cara</p>
+<button onclick="lanzar()" id="lanzar">RANDOM</button>
 </div>
 
 </main>
@@ -117,5 +117,24 @@ color: #ECEDF0;
         >devChallenges.io</a
       >.
     </div>
+    <script>
+    function lanzar() {
+  const resultado = Math.random() < 0.5 ? "Cara" : "Cruz";
+
+  if (resultado === "Cara") {
+    // Mostrar la imagen de cara
+    document.querySelector("#moneda img:first-child").style.display = "block";
+    document.querySelector("#cruz").style.display = "none";
+    document.querySelector("#tipo").innerHTML = "Cara";
+  } else {
+    // Mostrar la imagen de cruz
+    document.querySelector("#moneda img:first-child").style.display = "none";
+    document.querySelector("#cruz").style.display = "block";
+    document.querySelector("#tipo").innerHTML = "Cruz";
+  }
+}
+
+
+    </script>
   </body>
 </html>
